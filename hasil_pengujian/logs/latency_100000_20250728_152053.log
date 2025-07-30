@@ -1,0 +1,50 @@
+=== OPTIMIZED LATENCY PERFORMANCE BENCHMARKS (SCALE: 100000) ===
+⚡ PHASE 4: EXTENDED Latency Testing
+🔍 PostgreSQL Latency Tests (Standard Implementation):
+  📊 Single record SELECT latency (10 operations)...
+    ✅ Average SELECT latency: 52ms, Operations: 10, Avg Throughput: 19 rps
+  🎯 Selective columns SELECT latency (10 operations)...
+    ✅ Average SELECTIVE SELECT latency: 52ms, Operations: 10, Avg Throughput: 19 rps
+  🔗 JOIN query latency (10 operations)...
+    ✅ Average JOIN latency: 53ms, Operations: 10, Avg Throughput: 18 rps
+  📋 JSON query latency (10 operations)...
+    ✅ Average JSON query latency: 118ms, Operations: 10, Avg Throughput: 8 rps
+  🔍 Filtered SELECT latency (10 operations)...
+    ✅ Average FILTERED SELECT latency: 52ms, Operations: 10, Avg Throughput: 19 rps
+  📦 Batch SELECT latency (10 individual queries)...
+    ✅ Average BATCH SELECT latency: 124ms, Operations: 10, Avg Throughput: 8 rps
+🔍 HBase Latency Tests (Optimized Implementation):
+📦 Getting sample IDs from HBase...
+  📊 Single record GET latency (10 operations) - OPTIMIZED...
+    ✅ Average GET latency: 6036ms, Operations: 10, Avg Throughput: 0 rps
+  🎯 Selective columns GET latency (10 operations) - OPTIMIZED...
+    ✅ Average SELECTIVE GET latency: 6067ms, Operations: 10, Avg Throughput: 0 rps
+  🗂️ Column family GET latency (10 operations) - OPTIMIZED...
+    ✅ Average CF GET latency: 6045ms, Operations: 10, Avg Throughput: 0 rps
+  📋 JSON-like query latency (10 operations) - NEW...
+    ✅ Average JSON-like query latency: 6060ms, Operations: 10, Avg Throughput: 0 rps
+  🔍 SCAN filter latency (10 operations) - OPTIMIZED...
+    ✅ Average SCAN filter latency: 6039ms, Operations: 10, Avg Throughput: 0 rps
+  📦 Batch GET latency (10 operations in batch) - OPTIMIZED...
+    ✅ Average BATCH GET latency: 622ms, Operations: 10, Avg Throughput: 1 rps
+✅ EXTENDED Latency benchmarks completed for scale 100000
+
+⚡ EXTENDED LATENCY PERFORMANCE SUMMARY (Scale: 100000)
+=====================================================
+
+PostgreSQL Latency (avg of 10 operations - Standard):
+  - 📊 Single SELECT: Average latency
+  - 🎯 Selective SELECT: Specific columns only
+  - 🔗 JOIN Query: Multi-table operations
+  - 📋 JSON Query: JSONB field operations
+  - 🔍 Filtered SELECT: WHERE clause operations
+  - 📦 Batch SELECT: 10 individual queries
+
+HBase Latency (avg of 10 operations ):
+  - 📊 Single GET: Row retrieval 
+  - 🎯 Selective GET: Specific columns only 
+  - 🗂️ CF GET: Column family specific 
+  - 📋 JSON-like Query: Filtered scans 
+  - 🔍 SCAN Filter: Filtered table scans 
+  - 📦 Batch GET: 10 operations in single session 
+

@@ -1,0 +1,45 @@
+=== OPTIMIZED GENERATING TEST DATA FOR SCALE: 10000 ===
+📝 Generating reference data with optimizations...
+   ✅ Reference data generated: 10 schools, 20 konsentrasi, 15 taksonomi
+📝 Generating 10000 soalujian records with optimizations...
+🚀 Generating PostgreSQL data with batch processing...
+  📊 PostgreSQL: Batch 1 completed - 1000/10000 records (10%)
+  📊 PostgreSQL: Batch 2 completed - 2000/10000 records (20%)
+  📊 PostgreSQL: Batch 3 completed - 3000/10000 records (30%)
+  📊 PostgreSQL: Batch 4 completed - 4000/10000 records (40%)
+  📊 PostgreSQL: Batch 5 completed - 5000/10000 records (50%)
+  📊 PostgreSQL: Batch 6 completed - 6000/10000 records (60%)
+  📊 PostgreSQL: Batch 7 completed - 7000/10000 records (70%)
+  📊 PostgreSQL: Batch 8 completed - 8000/10000 records (80%)
+  📊 PostgreSQL: Batch 9 completed - 9000/10000 records (90%)
+  📊 PostgreSQL: Batch 10 completed - 10000/10000 records (100%)
+   ✅ PostgreSQL data generation: 34049ms (293 rps)
+🚀 Generating HBase data with optimized commands...
+  📊 HBase: Batch 1 completed - 1000/10000 records (10%)
+  📊 HBase: Batch 2 completed - 2000/10000 records (20%)
+  📊 HBase: Batch 3 completed - 3000/10000 records (30%)
+  📊 HBase: Batch 4 completed - 4000/10000 records (40%)
+  📊 HBase: Batch 5 completed - 5000/10000 records (50%)
+  📊 HBase: Batch 6 completed - 6000/10000 records (60%)
+  📊 HBase: Batch 7 completed - 7000/10000 records (70%)
+  📊 HBase: Batch 8 completed - 8000/10000 records (80%)
+  📊 HBase: Batch 9 completed - 9000/10000 records (90%)
+  📊 HBase: Batch 10 completed - 10000/10000 records (100%)
+   ✅ HBase data generation: 45107ms (221 rps)
+
+📊 OPTIMIZED DATA GENERATION SUMMARY
+====================================
+🎯 Scale: 10000 records
+📈 Performance Comparison:
+   PostgreSQL: 34049ms (293 rps)
+   HBase:      45107ms (221 rps)
+
+💾 Generated File Sizes:
+   📄 PostgreSQL data: 3.9M (soal_psql_10000.csv)
+   📄 HBase data: 13M (soal_hbase_10000.hbase)
+   📄 Schools: 4.0K (schools_10000.csv)
+   📄 Konsentrasi: 4.0K (konsentrasi_10000.csv)
+   📄 Taksonomi: 4.0K (taksonomi_10000.csv)
+   📊 PostgreSQL generation is 24% faster than HBase
+
+✅ OPTIMIZED test data for scale 10000 generated successfully!

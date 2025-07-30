@@ -1,0 +1,25 @@
+=== OPTIMIZED GENERATING TEST DATA FOR SCALE: 100 ===
+📝 Generating reference data with optimizations...
+   ✅ Reference data generated: 10 schools, 20 konsentrasi, 15 taksonomi
+📝 Generating 100 soalujian records with optimizations...
+🚀 Generating PostgreSQL data with batch processing...
+   ✅ PostgreSQL data generation: 344ms (290 rps)
+🚀 Generating HBase data with optimized commands...
+   ✅ HBase data generation: 449ms (222 rps)
+
+📊 OPTIMIZED DATA GENERATION SUMMARY
+====================================
+🎯 Scale: 100 records
+📈 Performance Comparison:
+   PostgreSQL: 344ms (290 rps)
+   HBase:      449ms (222 rps)
+
+💾 Generated File Sizes:
+   📄 PostgreSQL data: 40K (soal_psql_100.csv)
+   📄 HBase data: 128K (soal_hbase_100.hbase)
+   📄 Schools: 4.0K (schools_100.csv)
+   📄 Konsentrasi: 4.0K (konsentrasi_100.csv)
+   📄 Taksonomi: 4.0K (taksonomi_100.csv)
+   📊 PostgreSQL generation is 23% faster than HBase
+
+✅ OPTIMIZED test data for scale 100 generated successfully!

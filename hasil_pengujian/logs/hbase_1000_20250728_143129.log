@@ -1,0 +1,38 @@
+=== OPTIMIZED HBASE PERFORMANCE BENCHMARKS (SCALE: 1000) ===
+📦 Loading test data into HBase...
+⏳ This may take a while for scale 1000...
+✅ HBase data loaded successfully
+🔍 PHASE 2: OPTIMIZED Read Performance Tests
+🔍 Test 1: COUNT all records - OPTIMIZED
+   ✅ COUNT Duration: 6180ms, Records: 1100, Throughput: 177 rps
+🔍 Test 2: SCAN all records - OPTIMIZED
+   ✅ SCAN Duration: 7673ms, Scanned: 1, Throughput: 0 rps
+🔍 Test 3: SCAN with column family filter - OPTIMIZED
+   ✅ FILTERED SCAN Duration: 6303ms, Filtered: 1, Throughput: 0 rps
+🔍 Test 4: SCAN specific columns only - NEW
+   ✅ SELECTIVE SCAN Duration: 6176ms, Records: 1, Throughput: 0 rps
+🔍 Test 5: GET specific record by ID - OPTIMIZED
+   ✅ GET Duration: 6043ms, Throughput: 0 rps
+🔍 Test 6: GET specific columns only - NEW
+   ✅ GET SELECTIVE Duration: 6053ms, Throughput: 0 rps
+🔍 Test 7: Batch GET operations (5 records) - OPTIMIZED
+   ✅ BATCH GET Duration: 6146ms for 5 records, Throughput: 0 rps
+🔍 Test 8: Range SCAN with start/stop keys - NEW
+   ✅ RANGE SCAN Duration: 6107ms, Records: 1, Throughput: 0 rps
+🔍 Test 9: COUNT with column family filter - NEW
+   ✅ COUNT FILTERED Duration: 6207ms, Records: 1100, Throughput: 177 rps
+✅ OPTIMIZED HBase benchmarks completed for scale 1000
+
+📝 OPTIMIZED HBASE PERFORMANCE SUMMARY (Scale: 1000)
+======================================================
+📊 Test Results Summary:
+  - 🔢 COUNT: Full table count (optimized)
+  - 🔍 SCAN ALL: Complete table scan with cache
+  - 🔍 SCAN FILTERED: Column family filter with cache
+  - 🔍 SCAN SELECTIVE: Specific columns only
+  - 📄 GET: Single record by ID (optimized)
+  - 📄 GET SELECTIVE: Specific columns only
+  - 📄 BATCH GET: Multiple records in one session
+  - 📊 RANGE SCAN: Scan with start/stop keys
+  - 🔢 COUNT FILTERED: Count with column family filter
+

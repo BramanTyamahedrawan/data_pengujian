@@ -1,0 +1,46 @@
+=== POSTGRESQL PERFORMANCE BENCHMARKS (SCALE: 10000) ===
+📦 Loading test data into PostgreSQL...
+⏳ This may take a while for scale 10000...
+📂 Changing to data directory: /home/hadoopuser/migration-production/test-data-scaled
+📋 Checking required CSV files...
+   ✅ Found: schools_10000.csv (10 lines)
+   ✅ Found: taksonomi_10000.csv (15 lines)
+   ✅ Found: konsentrasi_10000.csv (20 lines)
+   ✅ Found: soal_psql_10000.csv (10000 lines)
+🔧 Clearing existing data...
+📥 Loading data with timeout protection...
+✅ PostgreSQL data loaded successfully
+🔍 PHASE 2: Read Performance Tests
+🔍 Test 1: COUNT all records
+   ✅ COUNT Duration: 55ms, Records: 10000, Throughput: 181818 rps
+🔍 Test 2: SELECT all records with LIMIT
+   ✅ SELECT ALL Duration: 315ms, Selected: 10001, Throughput: 31749 rps
+🔍 Test 3: SELECT with specific columns
+   ✅ SELECT FILTERED Duration: 53ms, Filtered: 101, Throughput: 1905 rps
+🔍 Test 4: SELECT specific columns only
+   ✅ SELECT SELECTIVE Duration: 53ms, Records: 51, Throughput: 962 rps
+🔍 Test 5: SELECT by specific ID
+   ✅ SELECT BY ID Duration: 53ms, Throughput: 18 rps
+🔍 Test 6: SELECT specific columns by ID
+   ✅ SELECT SELECTIVE BY ID Duration: 52ms, Throughput: 19 rps
+🔍 Test 7: Multiple SELECT operations (5 records)
+   ✅ MULTIPLE SELECT Duration: 259ms for 5 records, Throughput: 19 rps
+🔍 Test 8: Range SELECT with ORDER BY
+   ✅ RANGE SELECT Duration: 56ms, Records: 11, Throughput: 196 rps
+🔍 Test 9: COUNT with WHERE filter
+   ✅ COUNT FILTERED Duration: 54ms, Records: 10000, Throughput: 185185 rps
+✅ PostgreSQL benchmarks completed for scale 10000
+
+📝 POSTGRESQL PERFORMANCE SUMMARY (Scale: 10000)
+=================================================
+📊 Test Results Summary:
+  - 🔢 COUNT: Full table count
+  - 🔍 SELECT ALL: Complete table select with limit
+  - 🔍 SELECT FILTERED: Main columns selection
+  - 🔍 SELECT SELECTIVE: Specific columns only
+  - 📄 SELECT BY ID: Single record by ID
+  - 📄 SELECT SELECTIVE BY ID: Specific columns by ID
+  - 📄 MULTIPLE SELECT: 5 individual select operations
+  - 📊 RANGE SELECT: Select with range conditions
+  - 🔢 COUNT FILTERED: Count with WHERE filter
+

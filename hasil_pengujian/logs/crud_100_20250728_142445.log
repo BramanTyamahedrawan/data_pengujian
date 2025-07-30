@@ -1,0 +1,200 @@
+=== OPTIMIZED CRUD PERFORMANCE BENCHMARKS (SCALE: 100) ===
+📝 PHASE 3: EXTENDED CRUD Operations
+🔍 PostgreSQL CRUD Tests:
+  ➕ CREATE (INSERT) test...
+    ✅ INSERT Duration: 53ms, Records: 1, Throughput: 18 rps
+  🔍 READ (SELECT) test...
+    ✅ SELECT with JOIN Duration: 54ms, Records: 1, Throughput: 18 rps
+  🔍 READ (SELECT selective) test...
+    ✅ SELECT SELECTIVE Duration: 52ms, Records: 1, Throughput: 19 rps
+  ✏️ UPDATE test...
+    ✅ UPDATE Duration: 53ms, Records: 1, Throughput: 18 rps
+  🗑️ DELETE test...
+    ✅ DELETE Duration: 53ms, Records: 1, Throughput: 18 rps
+  🚀 BULK Operations test (10 individual inserts)...
+    ✅ BULK INSERT (10 records) Duration: 529ms, Throughput: 18 rps
+🔍 OPTIMIZED HBase CRUD Tests:
+  ➕ CREATE (PUT) test - OPTIMIZED...
+hbase:001:0> put 'soalUjian', '85fa6fe7-db84-4768-bc44-f2b3dea9fc39', 'main:idSoalUjian', '85fa6fe7-db84-4768-bc44-f2b3dea9fc39'
+Took 0.3905 seconds
+hbase:002:0> put 'soalUjian', '85fa6fe7-db84-4768-bc44-f2b3dea9fc39', 'main:namaUjian', 'CRUD Test 100'
+Took 0.0038 seconds
+hbase:003:0> put 'soalUjian', '85fa6fe7-db84-4768-bc44-f2b3dea9fc39', 'main:pertanyaan', 'Test CRUD question for scale 100'
+Took 0.0066 seconds
+hbase:004:0> put 'soalUjian', '85fa6fe7-db84-4768-bc44-f2b3dea9fc39', 'main:jenisSoal', 'PG'
+Took 0.0056 seconds
+hbase:005:0> put 'soalUjian', '85fa6fe7-db84-4768-bc44-f2b3dea9fc39', 'main:bobot', '5'
+Took 0.0032 seconds
+hbase:006:0> put 'soalUjian', '85fa6fe7-db84-4768-bc44-f2b3dea9fc39', 'main:jawabanBenar', '["A"]'
+Took 0.0051 seconds
+hbase:007:0> put 'soalUjian', '85fa6fe7-db84-4768-bc44-f2b3dea9fc39', 'main:opsi', '{"A":"Option A"}'
+Took 0.0025 seconds
+hbase:008:0> put 'soalUjian', '85fa6fe7-db84-4768-bc44-f2b3dea9fc39', 'refs:idTaksonomi', 'e244d301-4839-4cc8-95af-bff7b9124a37'
+Took 0.0023 seconds
+hbase:009:0> put 'soalUjian', '85fa6fe7-db84-4768-bc44-f2b3dea9fc39', 'refs:idKonsentrasiSekolah', '2cfd950e-7174-4bbd-9cc2-3a6333ae4703'
+Took 0.0022 seconds
+hbase:010:0> put 'soalUjian', '85fa6fe7-db84-4768-bc44-f2b3dea9fc39', 'detail:createdBy', 'CRUDTester'
+Took 0.0023 seconds
+hbase:011:0> exit
+    ✅ BATCH PUT Duration: 6131ms, Records: 1, Throughput: 0 rps
+  🔍 READ (GET) test - OPTIMIZED...
+    ✅ GET Duration: 6025ms, Records: 1, Throughput: 0 rps
+  🔍 READ (GET selective) test...
+    ✅ GET SELECTIVE Duration: 6057ms, Records: 1, Throughput: 0 rps
+  ✏️ UPDATE test - OPTIMIZED...
+hbase:001:0> put 'soalUjian', '85fa6fe7-db84-4768-bc44-f2b3dea9fc39', 'main:pertanyaan', 'Updated: Test CRUD question for scale 100'
+Took 0.4264 seconds
+hbase:002:0> put 'soalUjian', '85fa6fe7-db84-4768-bc44-f2b3dea9fc39', 'main:bobot', '10'
+Took 0.0029 seconds
+hbase:003:0> exit
+    ✅ BATCH UPDATE Duration: 6094ms, Records: 1, Throughput: 0 rps
+  🗑️ DELETE test - OPTIMIZED...
+hbase:001:0> deleteall 'soalUjian', '85fa6fe7-db84-4768-bc44-f2b3dea9fc39'
+Took 0.4193 seconds
+hbase:002:0> exit
+    ✅ DELETE Duration: 6052ms, Records: 1, Throughput: 0 rps
+  🚀 BULK Operations test (mini batch)...
+hbase:001:0> put 'soalUjian', 'f5f9c335-e64d-4f9f-875b-f90e70c11308', 'main:idSoalUjian', 'f5f9c335-e64d-4f9f-875b-f90e70c11308'
+Took 0.4005 seconds
+hbase:002:0> put 'soalUjian', 'f5f9c335-e64d-4f9f-875b-f90e70c11308', 'main:namaUjian', 'Bulk Test 1'
+Took 0.0026 seconds
+hbase:003:0> put 'soalUjian', 'f5f9c335-e64d-4f9f-875b-f90e70c11308', 'main:pertanyaan', 'Bulk question 1 for scale 100'
+Took 0.0024 seconds
+hbase:004:0> put 'soalUjian', 'f5f9c335-e64d-4f9f-875b-f90e70c11308', 'main:jenisSoal', 'PG'
+Took 0.0045 seconds
+hbase:005:0> put 'soalUjian', 'f5f9c335-e64d-4f9f-875b-f90e70c11308', 'main:bobot', '1'
+Took 0.0034 seconds
+hbase:006:0> put 'soalUjian', '2a8b470f-b695-4ec1-816a-f2fd540d167e', 'main:idSoalUjian', '2a8b470f-b695-4ec1-816a-f2fd540d167e'
+Took 0.0031 seconds
+hbase:007:0> put 'soalUjian', '2a8b470f-b695-4ec1-816a-f2fd540d167e', 'main:namaUjian', 'Bulk Test 2'
+Took 0.0027 seconds
+hbase:008:0> put 'soalUjian', '2a8b470f-b695-4ec1-816a-f2fd540d167e', 'main:pertanyaan', 'Bulk question 2 for scale 100'
+Took 0.0026 seconds
+hbase:009:0> put 'soalUjian', '2a8b470f-b695-4ec1-816a-f2fd540d167e', 'main:jenisSoal', 'PG'
+Took 0.0025 seconds
+hbase:010:0> put 'soalUjian', '2a8b470f-b695-4ec1-816a-f2fd540d167e', 'main:bobot', '2'
+Took 0.0024 seconds
+hbase:011:0> put 'soalUjian', '49164444-11fe-4ece-971a-1c6d11338d24', 'main:idSoalUjian', '49164444-11fe-4ece-971a-1c6d11338d24'
+Took 0.0025 seconds
+hbase:012:0> put 'soalUjian', '49164444-11fe-4ece-971a-1c6d11338d24', 'main:namaUjian', 'Bulk Test 3'
+Took 0.0022 seconds
+hbase:013:0> put 'soalUjian', '49164444-11fe-4ece-971a-1c6d11338d24', 'main:pertanyaan', 'Bulk question 3 for scale 100'
+Took 0.0029 seconds
+hbase:014:0> put 'soalUjian', '49164444-11fe-4ece-971a-1c6d11338d24', 'main:jenisSoal', 'PG'
+Took 0.0036 seconds
+hbase:015:0> put 'soalUjian', '49164444-11fe-4ece-971a-1c6d11338d24', 'main:bobot', '3'
+Took 0.0029 seconds
+hbase:016:0> put 'soalUjian', '902609ce-cfa5-47ea-9378-0e19fad52241', 'main:idSoalUjian', '902609ce-cfa5-47ea-9378-0e19fad52241'
+Took 0.0033 seconds
+hbase:017:0> put 'soalUjian', '902609ce-cfa5-47ea-9378-0e19fad52241', 'main:namaUjian', 'Bulk Test 4'
+Took 0.0027 seconds
+hbase:018:0> put 'soalUjian', '902609ce-cfa5-47ea-9378-0e19fad52241', 'main:pertanyaan', 'Bulk question 4 for scale 100'
+Took 0.0027 seconds
+hbase:019:0> put 'soalUjian', '902609ce-cfa5-47ea-9378-0e19fad52241', 'main:jenisSoal', 'PG'
+Took 0.0023 seconds
+hbase:020:0> put 'soalUjian', '902609ce-cfa5-47ea-9378-0e19fad52241', 'main:bobot', '4'
+Took 0.0022 seconds
+hbase:021:0> put 'soalUjian', '1b29635a-bf77-4719-9a8c-42d312f3429c', 'main:idSoalUjian', '1b29635a-bf77-4719-9a8c-42d312f3429c'
+Took 0.0024 seconds
+hbase:022:0> put 'soalUjian', '1b29635a-bf77-4719-9a8c-42d312f3429c', 'main:namaUjian', 'Bulk Test 5'
+Took 0.0022 seconds
+hbase:023:0> put 'soalUjian', '1b29635a-bf77-4719-9a8c-42d312f3429c', 'main:pertanyaan', 'Bulk question 5 for scale 100'
+Took 0.0022 seconds
+hbase:024:0> put 'soalUjian', '1b29635a-bf77-4719-9a8c-42d312f3429c', 'main:jenisSoal', 'PG'
+Took 0.0021 seconds
+hbase:025:0> put 'soalUjian', '1b29635a-bf77-4719-9a8c-42d312f3429c', 'main:bobot', '5'
+Took 0.0023 seconds
+hbase:026:0> put 'soalUjian', '2b970fa5-5f79-4e06-80ce-525b95f213da', 'main:idSoalUjian', '2b970fa5-5f79-4e06-80ce-525b95f213da'
+Took 0.0035 seconds
+hbase:027:0> put 'soalUjian', '2b970fa5-5f79-4e06-80ce-525b95f213da', 'main:namaUjian', 'Bulk Test 6'
+Took 0.0024 seconds
+hbase:028:0> put 'soalUjian', '2b970fa5-5f79-4e06-80ce-525b95f213da', 'main:pertanyaan', 'Bulk question 6 for scale 100'
+Took 0.0022 seconds
+hbase:029:0> put 'soalUjian', '2b970fa5-5f79-4e06-80ce-525b95f213da', 'main:jenisSoal', 'PG'
+Took 0.0023 seconds
+hbase:030:0> put 'soalUjian', '2b970fa5-5f79-4e06-80ce-525b95f213da', 'main:bobot', '6'
+Took 0.0021 seconds
+hbase:031:0> put 'soalUjian', 'c2326bb2-c998-4d6b-b48a-e96a1daaf245', 'main:idSoalUjian', 'c2326bb2-c998-4d6b-b48a-e96a1daaf245'
+Took 0.0021 seconds
+hbase:032:0> put 'soalUjian', 'c2326bb2-c998-4d6b-b48a-e96a1daaf245', 'main:namaUjian', 'Bulk Test 7'
+Took 0.0021 seconds
+hbase:033:0> put 'soalUjian', 'c2326bb2-c998-4d6b-b48a-e96a1daaf245', 'main:pertanyaan', 'Bulk question 7 for scale 100'
+Took 0.0020 seconds
+hbase:034:0> put 'soalUjian', 'c2326bb2-c998-4d6b-b48a-e96a1daaf245', 'main:jenisSoal', 'PG'
+Took 0.0020 seconds
+hbase:035:0> put 'soalUjian', 'c2326bb2-c998-4d6b-b48a-e96a1daaf245', 'main:bobot', '7'
+Took 0.0022 seconds
+hbase:036:0> put 'soalUjian', '8f3fa499-c1dc-4dc0-8233-e5dd9b5056d0', 'main:idSoalUjian', '8f3fa499-c1dc-4dc0-8233-e5dd9b5056d0'
+Took 0.0019 seconds
+hbase:037:0> put 'soalUjian', '8f3fa499-c1dc-4dc0-8233-e5dd9b5056d0', 'main:namaUjian', 'Bulk Test 8'
+Took 0.0020 seconds
+hbase:038:0> put 'soalUjian', '8f3fa499-c1dc-4dc0-8233-e5dd9b5056d0', 'main:pertanyaan', 'Bulk question 8 for scale 100'
+Took 0.0018 seconds
+hbase:039:0> put 'soalUjian', '8f3fa499-c1dc-4dc0-8233-e5dd9b5056d0', 'main:jenisSoal', 'PG'
+Took 0.0017 seconds
+hbase:040:0> put 'soalUjian', '8f3fa499-c1dc-4dc0-8233-e5dd9b5056d0', 'main:bobot', '8'
+Took 0.0020 seconds
+hbase:041:0> put 'soalUjian', '26d11f4e-f3fb-47b8-99a4-450ac0b2c157', 'main:idSoalUjian', '26d11f4e-f3fb-47b8-99a4-450ac0b2c157'
+Took 0.0017 seconds
+hbase:042:0> put 'soalUjian', '26d11f4e-f3fb-47b8-99a4-450ac0b2c157', 'main:namaUjian', 'Bulk Test 9'
+Took 0.0015 seconds
+hbase:043:0> put 'soalUjian', '26d11f4e-f3fb-47b8-99a4-450ac0b2c157', 'main:pertanyaan', 'Bulk question 9 for scale 100'
+Took 0.0015 seconds
+hbase:044:0> put 'soalUjian', '26d11f4e-f3fb-47b8-99a4-450ac0b2c157', 'main:jenisSoal', 'PG'
+Took 0.0015 seconds
+hbase:045:0> put 'soalUjian', '26d11f4e-f3fb-47b8-99a4-450ac0b2c157', 'main:bobot', '9'
+Took 0.0016 seconds
+hbase:046:0> put 'soalUjian', 'ba3209f0-bda1-4471-951e-ded4c23056a4', 'main:idSoalUjian', 'ba3209f0-bda1-4471-951e-ded4c23056a4'
+Took 0.0015 seconds
+hbase:047:0> put 'soalUjian', 'ba3209f0-bda1-4471-951e-ded4c23056a4', 'main:namaUjian', 'Bulk Test 10'
+Took 0.0016 seconds
+hbase:048:0> put 'soalUjian', 'ba3209f0-bda1-4471-951e-ded4c23056a4', 'main:pertanyaan', 'Bulk question 10 for scale 100'
+Took 0.0015 seconds
+hbase:049:0> put 'soalUjian', 'ba3209f0-bda1-4471-951e-ded4c23056a4', 'main:jenisSoal', 'PG'
+Took 0.0015 seconds
+hbase:050:0> put 'soalUjian', 'ba3209f0-bda1-4471-951e-ded4c23056a4', 'main:bobot', '10'
+Took 0.0015 seconds
+hbase:051:0> exit
+    ✅ BULK INSERT (10 records) Duration: 6414ms, Throughput: 1 rps
+hbase:001:0> deleteall 'soalUjian', 'f5f9c335-e64d-4f9f-875b-f90e70c11308'
+Took 0.3918 seconds
+hbase:002:0> deleteall 'soalUjian', '2a8b470f-b695-4ec1-816a-f2fd540d167e'
+Took 0.0026 seconds
+hbase:003:0> deleteall 'soalUjian', '49164444-11fe-4ece-971a-1c6d11338d24'
+Took 0.0025 seconds
+hbase:004:0> deleteall 'soalUjian', '902609ce-cfa5-47ea-9378-0e19fad52241'
+Took 0.0031 seconds
+hbase:005:0> deleteall 'soalUjian', '1b29635a-bf77-4719-9a8c-42d312f3429c'
+Took 0.0028 seconds
+hbase:006:0> deleteall 'soalUjian', '2b970fa5-5f79-4e06-80ce-525b95f213da'
+Took 0.0044 seconds
+hbase:007:0> deleteall 'soalUjian', 'c2326bb2-c998-4d6b-b48a-e96a1daaf245'
+Took 0.0037 seconds
+hbase:008:0> deleteall 'soalUjian', '8f3fa499-c1dc-4dc0-8233-e5dd9b5056d0'
+Took 0.0073 seconds
+hbase:009:0> deleteall 'soalUjian', '26d11f4e-f3fb-47b8-99a4-450ac0b2c157'
+Took 0.0027 seconds
+hbase:010:0> deleteall 'soalUjian', 'ba3209f0-bda1-4471-951e-ded4c23056a4'
+Took 0.0022 seconds
+hbase:011:0> exit
+✅ EXTENDED CRUD benchmarks completed for scale 100
+
+📝 EXTENDED CRUD PERFORMANCE SUMMARY (Scale: 100)
+====================================================
+
+PostgreSQL CRUD :
+  - ➕ INSERT: Single record with FK
+  - 🔍 SELECT: With JOIN operations
+  - 🔍 SELECT SELECTIVE: Specific columns only
+  - ✏️ UPDATE: Single record update
+  - 🗑️ DELETE: Single record delete
+  - 🚀 BULK: 10 records individual inserts
+
+HBase CRUD:
+  - ➕ BATCH PUT: Multi-column family (10 operations in 1 session)
+  - 🔍 GET: All column families 
+  - 🔍 GET SELECTIVE: Specific columns only
+  - ✏️ BATCH UPDATE: Multiple fields (2 operations in 1 session)
+  - 🗑️ DELETE: Complete row delete 
+  - 🚀 BULK: 10 records batch insert test
+
